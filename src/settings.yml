@@ -1,0 +1,30 @@
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+framework_version: latest
+polling_url: https://api.livetennisapi.com/api/public/v1/matches?status=live&limit=10&tour={{ tour }}
+polling_headers: authorization=Bearer {{ api_key }}
+polling_body: ''
+name: Live Tennis
+description: Live tennis scores on e-ink
+refresh_interval: 15
+custom_fields:
+- keyname: api_key
+  field_type: password
+  name: Live Tennis API key
+  description: 'Free key: https://livetennisapi.com/subscribe/free (30 req/min, 100 req/day)'
+- keyname: tour
+  field_type: select
+  name: Tour
+  description: Each tour includes its doubles draws. An empty value returns all tours.
+  options:
+    - All tours: ''
+    - ATP: atp
+    - WTA: wta
+    - Challenger: challenger
+    - ITF: itf
+    - Juniors: juniors
+  default: ''

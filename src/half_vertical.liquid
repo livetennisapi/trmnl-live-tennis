@@ -1,0 +1,33 @@
+{% if data and data.size > 0 %}
+<div class="layout layout--col gap--small">
+  {% for m in data limit: 4 %}
+    {% assign s = m.score %}
+    <div class="match">
+      <span class="label label--xsmall match__head" data-clamp="1">{{ m.tournament }}</span>
+      <div class="match__row">
+        <span class="match__player">{% if s and s.server == 1 %}<span class="serve"></span>{% endif %}<span class="match__name description" data-clamp="1">{{ m.players.p1.name }}</span></span>
+        <span class="value value--xsmall value--tnums">{% if s %}<span class="cell">{{ s.sets[0] }}</span><span class="cell">{{ s.games[0] | last }}</span><span class="cell cell--pts">{% if s.points and s.points[0] %}{{ s.points[0] }}{% endif %}</span>{% endif %}</span>
+      </div>
+      <div class="match__row">
+        <span class="match__player">{% if s and s.server == 2 %}<span class="serve"></span>{% endif %}<span class="match__name description" data-clamp="1">{{ m.players.p2.name }}</span></span>
+        <span class="value value--xsmall value--tnums">{% if s %}<span class="cell">{{ s.sets[1] }}</span><span class="cell">{{ s.games[1] | last }}</span><span class="cell cell--pts">{% if s.points and s.points[1] %}{{ s.points[1] }}{% endif %}</span>{% endif %}</span>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% elsif error %}
+<div class="layout layout--col layout--center">
+  <span class="title title--small">API unreachable</span>
+  <span class="label">Check the plugin's API key</span>
+</div>
+{% else %}
+<div class="layout layout--col layout--center">
+  <span class="title title--small">No live matches</span>
+  <span class="label">Quiet on tour right now</span>
+</div>
+{% endif %}
+
+<div class="title_bar">
+  <span class="title">Live Tennis</span>
+  <span class="instance">{% if data and data.size > 0 %}{% if meta.total %}{{ meta.total }}{% else %}{{ data.size }}{% if meta.has_more %}+{% endif %}{% endif %} live{% endif %}</span>
+</div>
