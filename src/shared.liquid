@@ -1,0 +1,23 @@
+{% comment %}
+  Shared styles for all four views. Score data binds to the response of
+  GET /matches?status=live — data[] of Match objects, where score carries
+  sets [p1,p2], games [[p1 per set],[p2 per set]], points ["40","AD",...],
+  server (1|2|null) and is_tiebreak. Break points are derived in each view
+  from points + server (the API does not expose a break-point flag on this
+  endpoint).
+
+  The serving dot is a SIBLING of the clamped name span on purpose: the
+  framework's data-clamp script replaces the element's children with plain
+  text, so any markup inside a data-clamp element is destroyed.
+{% endcomment %}
+<style>
+  .match { width: 100%; }
+  .match__head { display: block; }
+  .match__row { display: flex; align-items: baseline; justify-content: space-between; width: 100%; }
+  .match__player { display: flex; align-items: center; flex: 1 1 auto; min-width: 0; margin-right: 8px; }
+  .match__name { flex: 1 1 auto; min-width: 0; margin-right: 8px; }
+  .serve { flex: 0 0 auto; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #000; margin-right: 5px; }
+  .cell { display: inline-block; min-width: 20px; text-align: right; }
+  .cell--pts { min-width: 34px; font-weight: 700; }
+  .bp { display: inline-block; border: 1px solid #000; font-size: 10px; font-weight: 700; line-height: 1; padding: 1px 3px; margin-left: 4px; }
+</style>

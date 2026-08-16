@@ -1,0 +1,34 @@
+{% if data and data.size > 0 %}
+<div class="layout layout--col gap--xsmall">
+  {% for m in data limit: 3 %}
+    {% assign s = m.score %}
+    {% assign bp = false %}
+    {% if s and s.server and s.points %}
+      {% unless s.is_tiebreak %}
+        {% if s.server == 1 %}{% assign rp = s.points[1] %}{% assign sp = s.points[0] %}{% else %}{% assign rp = s.points[0] %}{% assign sp = s.points[1] %}{% endif %}
+        {% if rp == "AD" %}{% assign bp = true %}
+        {% elsif rp == "40" and sp != "40" and sp != "AD" %}{% assign bp = true %}{% endif %}
+      {% endunless %}
+    {% endif %}
+    <div class="match__row">
+      <span class="match__name description" data-clamp="1">{{ m.players.p1.name }}{% if s and s.server == 1 %}*{% endif %} vs {{ m.players.p2.name }}{% if s and s.server == 2 %}*{% endif %}</span>
+      <span class="value value--xsmall value--tnums">{% if s %}{% for g in s.games[0] %}{{ g }}-{{ s.games[1][forloop.index0] }} {% endfor %}{% if s.points and s.points[0] %}&middot; {{ s.points[0] }}-{{ s.points[1] }}{% endif %}{% if bp %}<span class="bp">BP</span>{% endif %}{% endif %}</span>
+    </div>
+  {% endfor %}
+</div>
+{% elsif error %}
+<div class="layout layout--col layout--center">
+  <span class="title title--small">Live Tennis API unreachable</span>
+  <span class="label">Check the plugin's API key</span>
+</div>
+{% else %}
+<div class="layout layout--col layout--center">
+  <span class="title title--small">No live matches</span>
+  <span class="label">Quiet on tour right now</span>
+</div>
+{% endif %}
+
+<div class="title_bar">
+  <span class="title">Live Tennis</span>
+  <span class="instance">{% if data and data.size > 0 %}{% if meta.total %}{{ meta.total }}{% else %}{{ data.size }}{% if meta.has_more %}+{% endif %}{% endif %} live{% endif %}</span>
+</div>

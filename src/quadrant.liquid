@@ -1,0 +1,32 @@
+{% if data and data.size > 0 %}
+  {% assign m = data[0] %}
+  {% assign s = m.score %}
+  {% assign total = meta.total %}
+  {% unless total %}{% assign total = data.size %}{% endunless %}
+<div class="layout layout--col layout--center gap--xsmall">
+  <span class="label label--xsmall match__head" data-clamp="1">{{ m.tournament }}{% if m.round %} &mdash; {{ m.round }}{% endif %}</span>
+  <div class="match">
+    <div class="match__row">
+      <span class="match__player">{% if s and s.server == 1 %}<span class="serve"></span>{% endif %}<span class="match__name description" data-clamp="1">{{ m.players.p1.name }}</span></span>
+      <span class="value value--xsmall value--tnums">{% if s %}{% for g in s.games[0] %}<span class="cell">{{ g }}</span>{% endfor %}<span class="cell cell--pts">{% if s.points and s.points[0] %}{{ s.points[0] }}{% endif %}</span>{% endif %}</span>
+    </div>
+    <div class="match__row">
+      <span class="match__player">{% if s and s.server == 2 %}<span class="serve"></span>{% endif %}<span class="match__name description" data-clamp="1">{{ m.players.p2.name }}</span></span>
+      <span class="value value--xsmall value--tnums">{% if s %}{% for g in s.games[1] %}<span class="cell">{{ g }}</span>{% endfor %}<span class="cell cell--pts">{% if s.points and s.points[1] %}{{ s.points[1] }}{% endif %}</span>{% endif %}</span>
+    </div>
+  </div>
+  {% if total > 1 %}<span class="label label--xsmall">+{{ total | minus: 1 }} more live</span>{% endif %}
+</div>
+{% elsif error %}
+<div class="layout layout--col layout--center">
+  <span class="title title--small">API unreachable</span>
+</div>
+{% else %}
+<div class="layout layout--col layout--center">
+  <span class="title title--small">No live matches</span>
+</div>
+{% endif %}
+
+<div class="title_bar">
+  <span class="title">Live Tennis</span>
+</div>

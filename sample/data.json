@@ -1,0 +1,160 @@
+{
+  "data": [
+    {
+      "id": 184201,
+      "tournament": "Cincinnati Open",
+      "tour": "atp",
+      "tournament_id": "atp-cincinnati",
+      "surface": "hard",
+      "indoor": false,
+      "format": "BO3",
+      "round": "Semi-final",
+      "round_code": "SF",
+      "status": "live",
+      "event_status": null,
+      "is_doubles": false,
+      "scheduled_time": "2026-08-16T17:00:00Z",
+      "players": {
+        "p1": { "id": 5992, "name": "Carlos Alcaraz", "tour": "atp", "country": "esp", "ranking": 2, "is_doubles_team": false },
+        "p2": { "id": 6011, "name": "Jannik Sinner", "tour": "atp", "country": "ita", "ranking": 1, "is_doubles_team": false }
+      },
+      "score": {
+        "sets": [1, 0],
+        "games": [[7, 3], [6, 1]],
+        "points": ["40", "30"],
+        "server": 1,
+        "is_tiebreak": false,
+        "win_probability_p1": null,
+        "danger": null,
+        "timestamp": "2026-08-16T18:12:41Z"
+      },
+      "winner": null,
+      "withdrew": null
+    },
+    {
+      "id": 184205,
+      "tournament": "Cincinnati Open",
+      "tour": "wta",
+      "tournament_id": "wta-cincinnati",
+      "surface": "hard",
+      "indoor": false,
+      "format": "BO3",
+      "round": "Semi-final",
+      "round_code": "SF",
+      "status": "live",
+      "event_status": null,
+      "is_doubles": false,
+      "scheduled_time": "2026-08-16T15:00:00Z",
+      "players": {
+        "p1": { "id": 7104, "name": "Iga Swiatek", "tour": "wta", "country": "pol", "ranking": 3, "is_doubles_team": false },
+        "p2": { "id": 7188, "name": "Coco Gauff", "tour": "wta", "country": "usa", "ranking": 2, "is_doubles_team": false }
+      },
+      "score": {
+        "sets": [0, 1],
+        "games": [[4, 2], [6, 2]],
+        "points": ["30", "40"],
+        "server": 1,
+        "is_tiebreak": false,
+        "win_probability_p1": null,
+        "danger": null,
+        "timestamp": "2026-08-16T18:12:52Z"
+      },
+      "winner": null,
+      "withdrew": null
+    },
+    {
+      "id": 184209,
+      "tournament": "Cincinnati Open",
+      "tour": "atp",
+      "tournament_id": "atp-cincinnati",
+      "surface": "hard",
+      "indoor": false,
+      "format": "BO3",
+      "round": "Quarter-final",
+      "round_code": "QF",
+      "status": "live",
+      "event_status": null,
+      "is_doubles": false,
+      "scheduled_time": "2026-08-16T16:00:00Z",
+      "players": {
+        "p1": { "id": 6042, "name": "Alexander Zverev", "tour": "atp", "country": "ger", "ranking": 4, "is_doubles_team": false },
+        "p2": { "id": 6087, "name": "Taylor Fritz", "tour": "atp", "country": "usa", "ranking": 5, "is_doubles_team": false }
+      },
+      "score": {
+        "sets": [0, 0],
+        "games": [[6], [6]],
+        "points": ["5", "4"],
+        "server": 2,
+        "is_tiebreak": true,
+        "win_probability_p1": null,
+        "danger": null,
+        "timestamp": "2026-08-16T18:13:04Z"
+      },
+      "winner": null,
+      "withdrew": null
+    },
+    {
+      "id": 184240,
+      "tournament": "Todi Challenger",
+      "tour": "challenger",
+      "tournament_id": "ch-todi",
+      "surface": "clay",
+      "indoor": false,
+      "format": "BO3",
+      "round": "Final",
+      "round_code": "F",
+      "status": "live",
+      "event_status": null,
+      "is_doubles": false,
+      "scheduled_time": "2026-08-16T14:30:00Z",
+      "players": {
+        "p1": { "id": 9130, "name": "Francesco Passaro", "tour": "challenger_men", "country": "ita", "ranking": 102, "is_doubles_team": false },
+        "p2": { "id": 9245, "name": "Daniel Rincon", "tour": "challenger_men", "country": "esp", "ranking": 131, "is_doubles_team": false }
+      },
+      "score": {
+        "sets": [1, 1],
+        "games": [[6, 2, 3], [4, 6, 3]],
+        "points": ["15", "15"],
+        "server": 1,
+        "is_tiebreak": false,
+        "win_probability_p1": null,
+        "danger": null,
+        "timestamp": "2026-08-16T18:12:33Z"
+      },
+      "winner": null,
+      "withdrew": null
+    },
+    {
+      "id": 184261,
+      "tournament": "ITF W75 Koksijde",
+      "tour": "itf",
+      "tournament_id": "itf-w75-koksijde",
+      "surface": "clay",
+      "indoor": false,
+      "format": "BO3",
+      "round": "Final",
+      "round_code": "F",
+      "status": "live",
+      "event_status": null,
+      "is_doubles": true,
+      "scheduled_time": "2026-08-16T13:00:00Z",
+      "players": {
+        "p1": { "id": 11430, "name": "Kato / Stollar", "tour": "ITF", "country": null, "ranking": null, "is_doubles_team": true },
+        "p2": { "id": 11445, "name": "Bara / Mitu", "tour": "ITF", "country": null, "ranking": null, "is_doubles_team": true }
+      },
+      "score": {
+        "sets": [0, 0],
+        "games": [[2], [1]],
+        "points": ["0", "15"],
+        "server": 2,
+        "is_tiebreak": false,
+        "win_probability_p1": null,
+        "danger": null,
+        "timestamp": "2026-08-16T18:11:58Z"
+      },
+      "winner": null,
+      "withdrew": null
+    }
+  ],
+  "meta": { "limit": 10, "offset": 0, "count": 5, "total": 5, "has_more": false }
+}

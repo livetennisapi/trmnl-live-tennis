@@ -1,0 +1,19 @@
+# TRMNLP configuration (local dev server only — not uploaded to TRMNL)
+# {{ env.VARIABLE }} interpolation is available here.
+---
+watch:
+  - src
+  - .trmnlp.yml
+
+# Values of custom fields (defined in src/settings.yml).
+# Supply your key via the environment before `trmnlp serve`:
+#   export LIVE_TENNIS_API_KEY=your-key
+custom_fields:
+  api_key: "{{ env.LIVE_TENNIS_API_KEY }}"
+  tour: ''
+
+# To preview without a key (or when no matches are live), paste the contents
+# of sample/data.json under `variables:` below — trmnlp renders those instead
+# of polling.
+variables:
+  trmnl: {}

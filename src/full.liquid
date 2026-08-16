@@ -1,0 +1,46 @@
+{% if data and data.size > 0 %}
+<div class="layout layout--col gap--small">
+  {% for m in data limit: 5 %}
+    {% assign s = m.score %}
+    {% assign bp1 = false %}
+    {% assign bp2 = false %}
+    {% if s and s.server and s.points %}
+      {% unless s.is_tiebreak %}
+        {% if s.server == 1 %}
+          {% if s.points[1] == "AD" %}{% assign bp2 = true %}
+          {% elsif s.points[1] == "40" and s.points[0] != "40" and s.points[0] != "AD" %}{% assign bp2 = true %}{% endif %}
+        {% elsif s.server == 2 %}
+          {% if s.points[0] == "AD" %}{% assign bp1 = true %}
+          {% elsif s.points[0] == "40" and s.points[1] != "40" and s.points[1] != "AD" %}{% assign bp1 = true %}{% endif %}
+        {% endif %}
+      {% endunless %}
+    {% endif %}
+    <div class="match">
+      <span class="label label--xsmall match__head" data-clamp="1">{{ m.tournament }}{% if m.round %} &mdash; {{ m.round }}{% endif %}{% if m.is_doubles %} &mdash; Doubles{% endif %}{% if s.is_tiebreak %} &mdash; Tiebreak{% endif %}</span>
+      <div class="match__row">
+        <span class="match__player">{% if s and s.server == 1 %}<span class="serve"></span>{% endif %}<span class="match__name description" data-clamp="1">{{ m.players.p1.name }}{% if m.players.p1.ranking %} ({{ m.players.p1.ranking }}){% endif %}</span></span>
+        <span class="value value--xsmall value--tnums">{% if s %}{% for g in s.games[0] %}<span class="cell">{{ g }}</span>{% endfor %}<span class="cell cell--pts">{% if s.points and s.points[0] %}{{ s.points[0] }}{% endif %}</span>{% if bp1 %}<span class="bp">BP</span>{% endif %}{% endif %}</span>
+      </div>
+      <div class="match__row">
+        <span class="match__player">{% if s and s.server == 2 %}<span class="serve"></span>{% endif %}<span class="match__name description" data-clamp="1">{{ m.players.p2.name }}{% if m.players.p2.ranking %} ({{ m.players.p2.ranking }}){% endif %}</span></span>
+        <span class="value value--xsmall value--tnums">{% if s %}{% for g in s.games[1] %}<span class="cell">{{ g }}</span>{% endfor %}<span class="cell cell--pts">{% if s.points and s.points[1] %}{{ s.points[1] }}{% endif %}</span>{% if bp2 %}<span class="bp">BP</span>{% endif %}{% endif %}</span>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% elsif error %}
+<div class="layout layout--col layout--center">
+  <span class="title">Live Tennis API unreachable</span>
+  <span class="label">{{ error }} &mdash; check the API key in this plugin's settings</span>
+</div>
+{% else %}
+<div class="layout layout--col layout--center">
+  <span class="title">No live matches</span>
+  <span class="label">Quiet on tour right now &mdash; next check in 15 minutes</span>
+</div>
+{% endif %}
+
+<div class="title_bar">
+  <span class="title">Live Tennis</span>
+  <span class="instance">{% if data and data.size > 0 %}{% if meta.total %}{{ meta.total }}{% else %}{{ data.size }}{% if meta.has_more %}+{% endif %}{% endif %} live{% endif %}</span>
+</div>
