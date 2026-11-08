@@ -12,7 +12,7 @@
     {% endif %}
     <div class="match__row">
       <span class="match__name description" data-clamp="1">{{ m.players.p1.name }}{% if s and s.server == 1 %}*{% endif %} vs {{ m.players.p2.name }}{% if s and s.server == 2 %}*{% endif %}</span>
-      <span class="value value--xsmall value--tnums">{% if s %}{% for g in s.games[0] %}{{ g }}-{{ s.games[1][forloop.index0] }} {% endfor %}{% if s.points and s.points[0] %}&middot; {{ s.points[0] }}-{{ s.points[1] }}{% endif %}{% if bp %}<span class="bp">BP</span>{% endif %}{% endif %}</span>
+      <span class="value value--xsmall value--tnums">{% if s %}{% for g in s.games[0] %}{{ g }}-{{ s.games[1][forloop.index0] }} {% endfor %}{% if s.points and s.points[0] %}&middot; {{ s.points[0] }}-{{ s.points[1] }}{% endif %}{% if bp %}<span class="label label--small label--outline bp">BP</span>{% endif %}{% endif %}</span>
     </div>
   {% endfor %}
 </div>

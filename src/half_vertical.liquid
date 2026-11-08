@@ -3,7 +3,7 @@
   {% for m in data limit: 4 %}
     {% assign s = m.score %}
     <div class="match">
-      <span class="label label--xsmall match__head" data-clamp="1">{{ m.tournament }}</span>
+      <span class="label label--small match__head" data-clamp="1">{{ m.tournament }}</span>
       <div class="match__row">
         <span class="match__player">{% if s and s.server == 1 %}<span class="serve"></span>{% endif %}<span class="match__name description" data-clamp="1">{{ m.players.p1.name }}</span></span>
         <span class="value value--xsmall value--tnums">{% if s %}<span class="cell">{{ s.sets[0] }}</span><span class="cell">{{ s.games[0] | last }}</span><span class="cell cell--pts">{% if s.points and s.points[0] %}{{ s.points[0] }}{% endif %}</span>{% endif %}</span>
