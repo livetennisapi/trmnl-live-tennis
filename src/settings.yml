@@ -12,10 +12,30 @@ name: Live Tennis
 description: Live tennis scores on e-ink
 refresh_interval: 15
 custom_fields:
+- keyname: about
+  field_type: author_bio
+  name: About This Plugin
+  category: sports
+  description: >-
+    Live tennis scores on your TRMNL. Each refresh shows the matches in progress
+    right now across the ATP, WTA, Challenger, ITF and junior tours, including
+    doubles. The full screen lists up to 5 matches with games per set and the
+    current points. A dot marks the server and a BP marker shows when the
+    returner holds a break point. The half views fit 3 or 4 matches and the quadrant shows the top
+    match plus a count of the rest. When nothing is being played it says so
+    instead of showing stale scores. Data comes from the Live Tennis API. The
+    default 15 minute refresh makes about 96 calls a day. That fits the free
+    tier's 100 requests a day, so a free key is enough. Pick a tour in the
+    settings to filter, or leave it empty for all tours. Built by Synapse
+    Research Ltd, the team behind the Live Tennis API. The source, sample data
+    and screenshots are on GitHub.
+  github_url: https://github.com/livetennisapi/trmnl-live-tennis
+  learn_more_url: https://livetennisapi.com
+  email_address: hello@livetennisapi.com
 - keyname: api_key
   field_type: password
   name: Live Tennis API key
-  description: 'Free key: https://livetennisapi.com/subscribe/free (30 req/min, 100 req/day)'
+  description: Get a free key at <a href="https://livetennisapi.com/subscribe/free" class="underline">livetennisapi.com/subscribe/free</a> (30 requests a minute, 100 a day).
 - keyname: tour
   field_type: select
   name: Tour

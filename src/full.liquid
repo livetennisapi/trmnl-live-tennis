@@ -16,14 +16,14 @@
       {% endunless %}
     {% endif %}
     <div class="match">
-      <span class="label label--xsmall match__head" data-clamp="1">{{ m.tournament }}{% if m.round %} &mdash; {{ m.round }}{% endif %}{% if m.is_doubles %} &mdash; Doubles{% endif %}{% if s.is_tiebreak %} &mdash; Tiebreak{% endif %}</span>
+      <span class="label label--small match__head" data-clamp="1">{{ m.tournament }}{% if m.round %} &mdash; {{ m.round }}{% endif %}{% if m.is_doubles %} &mdash; Doubles{% endif %}{% if s.is_tiebreak %} &mdash; Tiebreak{% endif %}</span>
       <div class="match__row">
         <span class="match__player">{% if s and s.server == 1 %}<span class="serve"></span>{% endif %}<span class="match__name description" data-clamp="1">{{ m.players.p1.name }}{% if m.players.p1.ranking %} ({{ m.players.p1.ranking }}){% endif %}</span></span>
-        <span class="value value--xsmall value--tnums">{% if s %}{% for g in s.games[0] %}<span class="cell">{{ g }}</span>{% endfor %}<span class="cell cell--pts">{% if s.points and s.points[0] %}{{ s.points[0] }}{% endif %}</span>{% if bp1 %}<span class="bp">BP</span>{% endif %}{% endif %}</span>
+        <span class="value value--xsmall value--tnums">{% if s %}{% for g in s.games[0] %}<span class="cell">{{ g }}</span>{% endfor %}<span class="cell cell--pts">{% if s.points and s.points[0] %}{{ s.points[0] }}{% endif %}</span>{% if bp1 %}<span class="label label--small label--outline bp">BP</span>{% endif %}{% endif %}</span>
       </div>
       <div class="match__row">
         <span class="match__player">{% if s and s.server == 2 %}<span class="serve"></span>{% endif %}<span class="match__name description" data-clamp="1">{{ m.players.p2.name }}{% if m.players.p2.ranking %} ({{ m.players.p2.ranking }}){% endif %}</span></span>
-        <span class="value value--xsmall value--tnums">{% if s %}{% for g in s.games[1] %}<span class="cell">{{ g }}</span>{% endfor %}<span class="cell cell--pts">{% if s.points and s.points[1] %}{{ s.points[1] }}{% endif %}</span>{% if bp2 %}<span class="bp">BP</span>{% endif %}{% endif %}</span>
+        <span class="value value--xsmall value--tnums">{% if s %}{% for g in s.games[1] %}<span class="cell">{{ g }}</span>{% endfor %}<span class="cell cell--pts">{% if s.points and s.points[1] %}{{ s.points[1] }}{% endif %}</span>{% if bp2 %}<span class="label label--small label--outline bp">BP</span>{% endif %}{% endif %}</span>
       </div>
     </div>
   {% endfor %}
