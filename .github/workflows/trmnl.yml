@@ -12,5 +12,20 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "4.0"
+      - name: Locate gem directories
+        id: gems
+        run: |
+          echo "dir=$(gem env gemdir)" >> "$GITHUB_OUTPUT"
+          echo "bindir=$(ruby -e 'print Gem.bindir')" >> "$GITHUB_OUTPUT"
+          echo "ruby=$(ruby -e 'print RUBY_VERSION')" >> "$GITHUB_OUTPUT"
+          echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
+      # Keyed on gem name, exact Ruby version and month. The gem itself stays unpinned.
+      - name: Cache installed gems
+        uses: actions/cache@v6
+        with:
+          path: |
+            ${{ steps.gems.outputs.dir }}
+            ${{ steps.gems.outputs.bindir }}
+          key: gems-trmnl_preview-${{ runner.os }}-ruby${{ steps.gems.outputs.ruby }}-${{ steps.gems.outputs.month }}
       - run: gem install trmnl_preview
       - run: trmnlp lint
