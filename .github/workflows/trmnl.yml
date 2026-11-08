@@ -19,6 +19,7 @@ jobs:
           echo "bindir=$(ruby -e 'print Gem.bindir')" >> "$GITHUB_OUTPUT"
           echo "ruby=$(ruby -e 'print RUBY_VERSION')" >> "$GITHUB_OUTPUT"
           echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
+      # Keyed on gem name, exact Ruby version and month. The gem itself stays unpinned.
       - name: Cache installed gems
         uses: actions/cache@v6
         with:
